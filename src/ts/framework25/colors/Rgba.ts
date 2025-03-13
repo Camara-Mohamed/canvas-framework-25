@@ -6,6 +6,13 @@ export class Rgba {
 
     // TODO : Validation
 
+    constructor(red: number, green: number, blue: number, alpha: number) {
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+        this.alpha = alpha;
+    }
+
     get red(): number {
         return Math.trunc(this._red);
     }
