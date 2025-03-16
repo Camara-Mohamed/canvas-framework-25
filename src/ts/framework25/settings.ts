@@ -1,7 +1,4 @@
 export const settings = {
-    radius: {
-        min: 0,
-        max: 0
-    }
-
+    // default color value for HSL and RGB channels
+    defaultColorValue: 0
 }

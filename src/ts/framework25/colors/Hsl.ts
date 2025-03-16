@@ -1,8 +1,9 @@
-export class Hsl {
-    private _hue: number;
-    private _saturation: number;
-    private _lightness: number;
+import {settings} from "../settings";
 
+export class Hsl {
+    private _hue: number = 0;
+    private _saturation: number = 0;
+    private _lightness: number = 0;
 
     constructor(hue: number, saturation: number, lightness: number) {
         this.hue = hue;
@@ -10,33 +11,40 @@ export class Hsl {
         this.lightness = lightness;
     }
 
+    set lightness(value: number) {
+        if (value >= 0 && value <= 100) {
+            this._lightness = value;
+        } else {
+            this._lightness = settings.defaultColorValue;
+        }
+    }
+
+    get lightness() {
+        return Math.trunc(this._lightness);
+    }
+
+
     get hue(): number {
         return Math.trunc(this._hue);
+    }
+
+    set hue(value: number) {
+        if (value >= 0 && value <= 360) {
+            this._hue = value;
+        } else {
+            this._hue = settings.defaultColorValue;
+        }
     }
 
     get saturation(): number {
         return Math.trunc(this._saturation);
     }
 
-    get lightness(): number {
-        return Math.trunc(this._lightness);
-    }
-
-    set hue(value: number) {
-        if (value >= 0 && value <= 360) {
-            this._hue = value;
-        }
-    }
-
     set saturation(value: number) {
         if (value >= 0 && value <= 100) {
             this._saturation = value;
-        }
-    }
-
-    set lightness(value: number) {
-        if (value >= 0 && value <= 100) {
-            this._lightness = value;
+        } else {
+            this._saturation = settings.defaultColorValue;
         }
     }
 
@@ -44,3 +52,4 @@ export class Hsl {
         return `hsl(${this.hue}deg,${this.saturation}%,${this.lightness}%)`
     }
 }
+

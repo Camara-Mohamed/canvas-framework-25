@@ -1,7 +1,8 @@
+import {iPosition} from "../iPosition";
 import {Shape} from "./Shape";
 import {Rgba} from "../colors/Rgba";
 import {Hsl} from "../colors/Hsl";
-import {iPosition} from "../types/iPosition";
+import {Rgb} from "../colors/Rgb";
 
 export class Triangle extends Shape {
     // x1: number;
@@ -14,10 +15,10 @@ export class Triangle extends Shape {
     height: number;
 
 
-    constructor(ctx: CanvasRenderingContext2D, color: Rgba | Hsl,
+    constructor(ctx: CanvasRenderingContext2D,
                 /*points: {x1: number; y1: number; x2: number; y2: number; x3: number; y3: number}*/
-                position: iPosition, width: number, height: number) {
-        super(ctx, color, position);
+                position: iPosition, color: Rgba | Hsl | Rgb, width: number, height: number) {
+        super(ctx, position, color);
         this.width = width;
         this.height = height;
         // this.x1 = points.x1;
